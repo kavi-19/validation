@@ -1,0 +1,78 @@
+<html>
+<head>
+<title> Validation Form </title>
+<style>
+*
+body{
+    font-family:arial,sans serif;
+    margin:20px;
+}
+form{
+   width:400px;
+   height:400px;
+   margin: 20px;
+   padding:100px;
+}
+</style>
+</head>
+<body>
+<form>
+        <label> Name:</label>
+        <input type ="text"  id="name" name="name" required placeholder="enter name">
+        <br>
+        <br>
+        <label> Mobile:</label>
+        <input type="number" id="name" name=number" required placeholder="enter num">
+        <br>
+        <br>
+        <label> Email:</label>
+        <input type="text" id="name" name="email" required placeholder="enter email">
+        <br>
+        <br>
+        <label> Password:</label>
+        <input type="text" id="name" name="password" required placeholder="enter password">
+        <br>
+        <br>
+        <label> Gender:</label>
+        <input type="radio">Male
+        <input type="radio">Female
+        <br>
+        <br>
+<label for="course">Choose a course:</label>
+        <select id="course" name="course" required>
+            <option value="">Select a course</option>
+            <option value="web-development">Web Development</option>
+            <option value="data-science">Data Science</option>
+            <option value="machine-learning">Machine Learning</option>
+            <option value="graphic-design">Graphic Design</option>
+            </select>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+       </form>
+<script>
+<!-- JavaScript for form validation -->
+    <script>
+        const form = document.getElementById("registrationForm");
+        function validateForm(event) {
+            if (name == "") {
+                errorMessage.textContent = "Name is required";
+            }
+            if (Email =="") {
+                errorMessage.textContent = "Fill this field";
+            }
+            if (password  == "") {
+                errorMessage.textContent = "Password is required";
+            }
+            if (confirmPassword == password) {
+                errorMessage.textContent = "Passwords do not match";
+            }
+            if (course == "") {
+                errorMessage.textContent = "You must choose a course";
+            }
+          }
+    </script>
+
+       </body>
+</head>
+</html>
