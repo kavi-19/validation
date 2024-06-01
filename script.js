@@ -32,6 +32,7 @@ function validateEmail(){
     phoneError.innerHTML = 'Email no is required';
     return false;
     }
+
     emailError.innerHTML='valid';
     return true;
 
@@ -46,6 +47,6 @@ function validateEmail(){
       return false;
     }
 
-   messageError.innerHTML='<i class="fa-solid fa-check-to-slot"></i>';
+   messageError.innerHTML='valid';
     return true;
   }
