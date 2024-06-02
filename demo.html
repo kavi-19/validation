@@ -3,29 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <h1> Register form</h1>
+  <title>Validation form</form></title>
 </head>
-<body>
-  <form name="myForm">
-  <label> Name:</label> 
-  <input type="text" name="fname">
-    <br><br>
-    <button onclick="validateForm()"> Submit</button>
-  </form><br>
-
-  
-
-  <script>
-    function validateForm() {
-  let x = document.forms["myForm"]["fname"].value;
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
+<style>
+  body{
+    background-color: darkcyan;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
   }
+  #form{
+    margin:20px;
+    padding:20px;
 }
-</script>
-</head>
-<body>
-  </script>
+#form h1{
+  color: black;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+#form button{
+  padding:10px;
+  border-radius: 10px;
   
+}
+.input-control{
+  display:flex;
+  flex-direction:column;
+}
+.input-control input{
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  display:block;
+  font-size: 12px;
+}
+.input-control.success input{
+  border-color: green;
+}
+.input-control.error input{
+  boder-color:red;
+}
+.input-control.success{
+  color:red;
+  font-size: 9px;
+  height: 13px;
+}
+.input-control.success{
+  color:green;
+  font-size: 9px;
+  height: 13px;
+}
+</style>
+<body>
+  
+  <div class="container">
+    <form id="form" action="">
+      <h1> Validation Form</h1>
+      <div class="input-control">
+        <label> UserName:</label>
+        <input type="text" id="username" name="usernmame" required>
+        <div class="error">
+        </div>
+       </div>
+       <br>
+       <div class="input-control">
+        <label> Email:</label>
+        <input type="text" id="email" name="email" required>
+        <div class="error">
+        </div>
+       </div>
+       <br>
+       <div class="input-control">
+        <label> password:</label>
+        <input type="text" id="password" name="password" required>
+        <div class="error">
+        </div>
+       </div>
+       <br>
+       <div class="input-control">
+        <label> Confirm password:</label>
+        <input type="text" id="cpassword" name="cpassword" required>
+        <div class="error">
+        </div>
+       </div>
+       <br>
+       <button type="button" id="button">Submit</button>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('form')
+    const username = document.getElementById('username')
+    const email = document.getElementById('email')
+    const password = document.getElementById('password')
+    const cpassword = document.getElementById('cpassword')
+
+    form.addEventListener('submit', e=>{
+           e.preventDefault();
+
+           validateInputs();
+   });
+   const setError = (element,message)=>{
+    const inputControl=element.parentElement;
+    const errorDisplay = inputControl.querySelector('error');
+
+    errorDisplay.innerText = message;
+    inputControl.classList.add('error');
+    inputControl.classList.remove('success')
+
+   }
+   const setSuccess = element => {
+    const inputControl = element.parentElement;
+    const erroeDisplay = inputControl.querySelector('.error');
+
+    errorDisplay.innerText = ' ';
+    inputControl.classList.add('success');
+    inputControl.classList.remove('error');
+
+   };
+
+   
+
+    const validateInputs=() => {
+      const usernameValue = username.value.trim();
+      const emailvalue = email.value.trim();
+      const passwordvalue = password.value.trim();
+      const cpasswordvalue = cpassword.value.trim();
+    };
+
+    if(usernamevalue ===''){
+      setError(username, 'Username is required');
+    } else{
+      setSuccess(username);
+
+    }
+    if(emailValue === ''){
+      setError(email,'Email is required');
+    }
+
+    
+
+      
+
+
+
+
+
+
+  </script>
+  </body>
+</html>
